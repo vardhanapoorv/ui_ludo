@@ -91,8 +91,8 @@
             border: 1px solid white;
         }
 
-        .yellow {
-            background-color: #cccc26;
+        .orange {
+            background-color: orange;
             border: 1px solid white;
         }
 
@@ -131,13 +131,13 @@
 
         .yellow_diag {
             background-color: white;
-            background-image: -webkit-linear-gradient(-59deg, #bf1f1f 50%, #cccc26 50%);
+            background-image: -webkit-linear-gradient(-59deg, #bf1f1f 50%, orange 50%);
             min-height: 500px;
         }
 
         .green_diag {
             background-color: white;
-            background-image: -webkit-linear-gradient(57deg, #cccc26 50%, #6ac314 50%);
+            background-image: -webkit-linear-gradient(57deg, orange 50%, #6ac314 50%);
             min-height: 500px;
         }
 
@@ -333,6 +333,31 @@
             background-color: white;
         }
 
+        #redCoin {
+            width: 91px;
+            height: 63px;
+            position: absolute;
+            background:url(img/red.png) center no-repeat;
+        }
+        #greenCoin {
+            width: 91px;
+            height: 63px;
+            position: absolute;
+            background:url(img/green.png) center no-repeat;
+        }
+        #blueCoin {
+            width: 91px;
+            height: 63px;
+            position: absolute;
+            background:url(img/blue.png) center no-repeat;
+        }
+        #orangeCoin {
+            width: 91px;
+            height: 63px;
+            position: absolute;
+            background:url(img/orange.png) center no-repeat;
+        }
+
         .req_btn {
             position: absolute;
             top: 21%;
@@ -469,8 +494,8 @@
 </div>
 <table id="ludo">
     <tr>
-        <th class="red"><span class="coin1"></span></th>
-        <th class="red"><span class="coin2"></span></th>
+        <th class="red"><span class="coin1"><span id="redCoin"></span></span></th>
+        <th class="red"><span class="coin2"><span id="redCoin"></span></span></th>
         <th class="white">
             <div class="table inner">
                 <div class="row">
@@ -490,12 +515,12 @@
                 </div>
             </div>
         </th>
-        <th class="blue"><span class="coin3"></span></th>
-        <th class="blue"><span class="coin4"></span></th>
+        <th class="blue"><span class="coin3"><span id="blueCoin"></span></span></th>
+        <th class="blue"><span class="coin4"><span id="blueCoin"></span></span></th>
     </tr>
     <tr>
-        <th class="red"><span class="coin5"></span></th>
-        <th class="red"><span class="coin6"></span></th>
+        <th class="red"><span class="coin5"><span id="redCoin"></span></span></th>
+        <th class="red"><span class="coin6"><span id="redCoin"></span></span></th>
         <th class="white">
             <div class="table inner">
                 <div class="row">
@@ -515,8 +540,8 @@
                 </div>
             </div>
         </th>
-        <th class="blue"><span class="coin7"></span></th>
-        <th class="blue"><span class="coin8"></span></th>
+        <th class="blue"><span class="coin7"><span id="blueCoin"></span></span></th>
+        <th class="blue"><span class="coin8"><span id="blueCoin"></span></span></th>
     </tr>
     <tr>
         <th class="white">
@@ -571,7 +596,7 @@
                 </div>
                 <div class="row">
                     <div class="hcell yellow_diag">&nbsp;</div>
-                    <div class="hcell" style="background-color: #cccc26;">&nbsp;</div>
+                    <div class="hcell" style="background-color: orange;">&nbsp;</div>
                     <div class="hcell green_diag">&nbsp;</div>
                 </div>
             </div>
@@ -616,43 +641,43 @@
         </th>
     </tr>
     <tr>
-        <th class="yellow"><span class="coin9"></span></th>
-        <th class="yellow"><span class="coin10"></span></th>
+        <th class="orange"><span class="coin9"><span id="orangeCoin"></span></span></th>
+        <th class="orange"><span class="coin10"><span id="orangeCoin"></span></span></th>
         <th class="white">
             <div class="table inner">
                 <div class="row">
                     <div class="cell">&nbsp;</div>
-                    <div class="cell" style="background-color: #cccc26;"><span class="glyphicon glyphicon-arrow-up"></span></div>
+                    <div class="cell" style="background-color: orange;"><span class="glyphicon glyphicon-arrow-up"></span></div>
                     <div class="cell">&nbsp;</div>
                 </div>
                 <div class="row">
                     <div class="cell">&nbsp;</div>
-                    <div class="cell" style="background-color: #cccc26;">&nbsp;</div>
+                    <div class="cell" style="background-color: orange;">&nbsp;</div>
                     <div class="cell">&nbsp;</div>
                 </div>
                 <div class="row">
                     <div class="cell">&nbsp;</div>
-                    <div class="cell" style="background-color: #cccc26;">&nbsp;</div>
+                    <div class="cell" style="background-color: orange;">&nbsp;</div>
                     <div class="cell">&nbsp;</div>
                 </div>
             </div>
         </th>
-        <th class="green"><span class="coin11"></span></th>
-        <th class="green"><span class="coin12"></span></th>
+        <th class="green"><span class="coin11"><span id="greenCoin"></span></span></th>
+        <th class="green"><span class="coin12"><span id="greenCoin"></span></span></th>
     </tr>
     <tr>
-        <th class="yellow"><span class="coin13"></span></th>
-        <th class="yellow"><span class="coin14"></span></th>
+        <th class="orange"><span class="coin13"><span id="orangeCoin"></span></span></th>
+        <th class="orange"><span class="coin14"><span id="orangeCoin"></span></span></th>
         <th class="white">
             <div class="table inner">
                 <div class="row">
                     <div class="cell">&nbsp;</div>
-                    <div class="cell" style="background-color: #cccc26;">&nbsp;</div>
-                    <div class="cell"><span class="glyphicon glyphicon-star" style="color: #cccc26;"></span></div>
+                    <div class="cell" style="background-color: orange;">&nbsp;</div>
+                    <div class="cell"><span class="glyphicon glyphicon-star" style="color: orange;"></span></div>
                 </div>
                 <div class="row">
-                    <div class="cell" style="background-color: #cccc26;"><span class="glyphicon glyphicon-star whitestar"></span></div>
-                    <div class="cell" style="background-color: #cccc26;">&nbsp;</div>
+                    <div class="cell" style="background-color: orange;"><span class="glyphicon glyphicon-star whitestar"></span></div>
+                    <div class="cell" style="background-color: orange;">&nbsp;</div>
                     <div class="cell">&nbsp;</div>
                 </div>
                 <div class="row">
@@ -662,8 +687,8 @@
                 </div>
             </div>
         </th>
-        <th class="green"><span class="coin15"></span></th>
-        <th class="green"><span class="coin16"></span></th>
+        <th class="green"><span class="coin15"><span id="greenCoin"></span></span></th>
+        <th class="green"><span class="coin16"><span id="greenCoin"></span></span></th>
     </tr>
 </table>
 <div class="diceroll">

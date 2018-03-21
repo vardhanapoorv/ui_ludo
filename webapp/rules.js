@@ -3,6 +3,7 @@ var dicesCount = 0;
 var diceNumber;
 var sixesCount = 0 ;
 var dicesArray = [];
+var turn = 0;
 
 function checkThreeSixes() {
     if (dicesCount === 3) {
@@ -85,4 +86,10 @@ function moveCoin() {
     }
     dicesArray.splice(index, 1);
 
- }
+}
+
+function turnOfPlayer() {
+    switch(turn) {
+        case 0 :
+    }
+}
