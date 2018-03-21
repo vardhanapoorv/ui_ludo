@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  border: 1px solid
+}
+#animate {
+  width: 110px;
+  height: 140px;
+  position: absolute;
+  background:url(goti.png) center no-repeat;
+}
+</style>
+<body>
+
+<p>
+<button onclick="myMove()">Click to move</button>
+</p> 
+
+<div id ="container">
+    <table style="border: 1px solid; height: 100px">
+        <tr style="height: 130px;">
+         <td style="width:100px; border: 1px solid #ddd;"></td>
+         <td style="width:100px; border: 1px solid #ddd;"></td>
+         <td style="width:100px; border: 1px solid #ddd;"></td>
+         <td style="width:100px; border: 1px solid #ddd;"></td>
+            
+        </tr>
+        <div id ="animate"></div>
+
+    </table>
+</div>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 300) {
+      clearInterval(id);
+    } else {
+      pos++; 
+    //   elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
+
+</body>
+</html>

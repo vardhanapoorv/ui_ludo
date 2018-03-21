@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ludo Board</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="rules.js"></script>
+    <style>
+        body {
+            background-image: url("img/dicebg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.9;
+        }
+        .table {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        .row {
+            display: table-row;
+            margin: 0;
+        }
+
+        .cell {
+            display: table-cell;
+            padding: 5px;
+            height: 100%;
+            width: 100%;
+            border-top-color: white;
+            border-top-style: solid;
+            border-top-width: 1px;
+            border-right-color: white;
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-bottom-color: white;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+
+        .hcell {
+            display: table-cell;
+            padding: 5px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .home {
+            margin: 0;
+            border: 1px solid white;
+        }
+
+        .inner {
+            margin: 0;
+            border-collapse: collapse;
+            border-style: hidden;
+        }
+
+        #ludo {
+            margin-left: 24%;
+            margin-top: 5%;
+            width: 50%;
+            height: 100%;
+            border: 2px solid darkred;
+        }
+
+        .white {
+            padding: 0;
+            margin: 0;
+            background-color: #FDEBEB;
+            border: 1px solid white;
+        }
+
+        .red {
+            background-color: #bf1f1f;
+            border: 1px solid white;
+        }
+
+        .blue {
+            background-color: #1692bb;
+            border: 1px solid white;
+        }
+
+        .green {
+            background-color: #6ac314;
+            border: 1px solid white;
+        }
+
+        .orange {
+            background-color: orange;
+            border: 1px solid white;
+        }
+
+        .whitestar {
+            font-size: 17px;
+            margin: 0 0 0 11px;
+            color: white;
+        }
+
+        .glyphicon-star {
+            font-size: 17px;
+            margin: 0 0 0 11px;
+        }
+
+        .glyphicon-arrow-up {
+            margin: 0 0 0 10px;
+            color: white;
+        }
+
+        .glyphicon-arrow-down, .glyphicon-arrow-right, .glyphicon-arrow-left {
+            margin: 0 0 0 12px;
+            color: white;
+        }
+
+        .red_diag {
+            background-color: white;
+            background-image: -webkit-linear-gradient(235deg, #1692bb 50%, #bf1f1f 50%);
+            min-height: 500px;
+        }
+
+        .blue_diag {
+            background-color: white;
+            background-image: -webkit-linear-gradient(125deg, #6ac314 50%, #1692bb 50%);
+            min-height: 500px;
+        }
+
+        .yellow_diag {
+            background-color: white;
+            background-image: -webkit-linear-gradient(-59deg, #bf1f1f 50%, orange 50%);
+            min-height: 500px;
+        }
+
+        .green_diag {
+            background-color: white;
+            background-image: -webkit-linear-gradient(57deg, orange 50%, #6ac314 50%);
+            min-height: 500px;
+        }
+
+        .coin1 {
+            display: block;
+            position: relative;
+            left: 26.2%;
+            top: 12.5%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin2 {
+            display: block;
+            position: relative;
+            left: 36.3%;
+            top: 12.5%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin3 {
+            display: block;
+            position: relative;
+            left: 56.1%;
+            top: 12.5%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin4 {
+            display: block;
+            position: relative;
+            left: 66.1%;
+            top: 12.5%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin5 {
+            display: block;
+            position: relative;
+            left: 26.3%;
+            top: 28%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin6 {
+            display: block;
+            position: relative;
+            left: 36.3%;
+            top: 28%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin7 {
+            display: block;
+            position: relative;
+            left: 56.3%;
+            top: 28%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin8 {
+            display: block;
+            position: relative;
+            left: 66.3%;
+            top: 28%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin9 {
+            display: block;
+            position: relative;
+            left: 26.3%;
+            top: 59%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin10 {
+            display: block;
+            position: relative;
+            left: 36.3%;
+            top: 59%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin11 {
+            display: block;
+            position: relative;
+            left: 56.3%;
+            top: 59%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin12 {
+            display: block;
+            position: relative;
+            left: 66.3%;
+            top: 59%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin13 {
+            display: block;
+            position: relative;
+            left: 26.3%;
+            top: 74%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin14 {
+            display: block;
+            position: relative;
+            left: 36.3%;
+            top: 74%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin15 {
+            display: block;
+            position: relative;
+            left: 56.3%;
+            top: 74%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+
+        .coin16 {
+            display: block;
+            position: relative;
+            left: 66.3%;
+            top: 74%;
+            content: '';
+            width: 79px;
+            height: 78px;
+            border-radius: 81%;
+            background-color: white;
+        }
+        #redCoin {
+            width: 91px;
+            height: 63px;
+            position: absolute;
+            background:url(img/red.png) center no-repeat;
+        }
+        #greenCoin {
+            width: 91px;
+            height: 63px;
+            position: absolute;
+            background:url(img/green.png) center no-repeat;
+        }
+        #blueCoin {
+            width: 91px;
+            height: 63px;
+            position: absolute;
+            background:url(img/blue.png) center no-repeat;
+        }
+        #orangeCoin {
+            width: 91px;
+            height: 63px;
+            position: absolute;
+            background:url(img/orange.png) center no-repeat;
+        }
+    </style>
+</head>
+<body>
+<table id="ludo">
+    <tr>
+        <th class="red"><span class="coin1"><span id="redCoin"></span></span></th>
+        <th class="red"><span class="coin2"><span id="redCoin"></span></span></th>
+        <th class="white">
+            <div class="table inner">
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: #1692bb;">&nbsp;</div>
+                    <div class="cell" style="background-color: #1692bb;"><span class="glyphicon glyphicon-star whitestar"></span></div>
+                </div>
+                <div class="row">
+                    <div class="cell"><span class="glyphicon glyphicon-star" style="color: #1692bb;"></span></div>
+                    <div class="cell" style="background-color: #1692bb;">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+            </div>
+        </th>
+        <th class="blue"><span class="coin3"><span id="blueCoin"></span></span></th>
+        <th class="blue"><span class="coin4"><span id="blueCoin"></span></span></th>
+    </tr>
+    <tr>
+        <th class="red"><span class="coin5"><span id="redCoin"></span></span></th>
+        <th class="red"><span class="coin6"><span id="redCoin"></span></span></th>
+        <th class="white">
+            <div class="table inner">
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: #1692bb;">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: #1692bb;">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: #1692bb;"> <span class="glyphicon glyphicon-arrow-down"></span></div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+            </div>
+        </th>
+        <th class="blue"><span class="coin7"><span id="blueCoin"></span></span></th>
+        <th class="blue"><span class="coin8"><span id="blueCoin"></span></span></th>
+    </tr>
+    <tr>
+        <th class="white">
+            <div class="table inner">
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: #bf1f1f;"><span class="glyphicon glyphicon-star whitestar"></span></div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: #bf1f1f;">&nbsp;</div>
+                    <div class="cell" style="background-color: #bf1f1f;">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell"><span class="glyphicon glyphicon-star" style="color: #bf1f1f;"></span></div>
+                </div>
+            </div>
+        </th>
+        <th class="white">
+            <div class="table inner">
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background-color: #bf1f1f;">&nbsp;</div>
+                    <div class="cell" style="background-color: #bf1f1f;">&nbsp;</div>
+                    <div class="cell" style="background-color: #bf1f1f;"><span class="glyphicon glyphicon-arrow-right"></span></div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+            </div>
+        </th>
+        <th class="white">
+            <div class="table home">
+                <div class="row">
+                    <div class="hcell red_diag">&nbsp;</div>
+                    <div class="hcell" style="background-color: #1692bb;">&nbsp;</div>
+                    <div class="hcell blue_diag">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="hcell" style="background-color: #bf1f1f;">&nbsp;</div>
+                    <div class="hcell" style="font-size: 11px;" onclick="roll()">HOME</div>
+                    <div class="hcell" style="background-color: #6ac314;">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="hcell yellow_diag">&nbsp;</div>
+                    <div class="hcell" style="background-color: orange;">&nbsp;</div>
+                    <div class="hcell green_diag">&nbsp;</div>
+                </div>
+            </div>
+        </th>
+        <th class="white">
+            <div class="table inner">
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background-color: #6ac314;"><span class="glyphicon glyphicon-arrow-left"></div>
+                    <div class="cell" style="background-color: #6ac314;">&nbsp;</div>
+                    <div class="cell" style="background-color: #6ac314;">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+            </div>
+        </th>
+        <th class="white">
+            <div class="table inner">
+                <div class="row">
+                    <div class="cell"><span class="glyphicon glyphicon-star" style="color: #6ac314;"></span></div>
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background-color: #6ac314;">&nbsp;</div>
+                    <div class="cell" style="background-color: #6ac314;">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: #6ac314;"><span class="glyphicon glyphicon-star whitestar"></span></div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+            </div>
+        </th>
+    </tr>
+    <tr>
+        <th class="orange"><span class="coin9"><span id="orangeCoin"></span></span></th>
+        <th class="orange"><span class="coin10"><span id="orangeCoin"></span></span></th>
+        <th class="white">
+            <div class="table inner">
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: orange;"><span class="glyphicon glyphicon-arrow-up"></span></div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: orange;">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: orange;">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+            </div>
+        </th>
+        <th class="green"><span class="coin11"><span id="greenCoin"></span></span></th>
+        <th class="green"><span class="coin12"><span id="greenCoin"></span></span></th>
+    </tr>
+    <tr>
+        <th class="orange"><span class="coin13"><span id="orangeCoin"></span></span></th>
+        <th class="orange"><span class="coin14"><span id="orangeCoin"></span></span></th>
+        <th class="white">
+            <div class="table inner">
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell" style="background-color: orange;">&nbsp;</div>
+                    <div class="cell"><span class="glyphicon glyphicon-star" style="color: orange;"></span></div>
+                </div>
+                <div class="row">
+                    <div class="cell" style="background-color: orange;"><span class="glyphicon glyphicon-star whitestar"></span></div>
+                    <div class="cell" style="background-color: orange;">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+                <div class="row">
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                    <div class="cell">&nbsp;</div>
+                </div>
+            </div>
+        </th>
+        <th class="green"><span class="coin15"><span id="greenCoin"></span></span></th>
+        <th class="green"><span class="coin16"><span id="greenCoin"></span></span></th>
+    </tr>
+</table>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Select dice count</h4>
+            </div>
+            <div class="modal-body">
+                <div id="diceOptions"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="moveCoin()" >Submit</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

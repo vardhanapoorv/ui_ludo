@@ -1,0 +1,36 @@
+body {
+    background: -webkit-gradient(linear, left top, left bottom, from(deepskyblue), to(white)) no-repeat;
+    /*background: linear-gradient(skyblue, white) no-repeat;*/
+    width: 100%;
+}
+
+#letterL, #letterU, #letterD, #letterO {
+    font-size: 65px;
+    color: white;
+    animation-delay: -.6s;
+}
+
+.heading {
+    margin-left: 34%;
+    margin-top: 12%;
+}
+
+#letterL{
+    color: blue;
+}
+
+#letterU {
+    color: yellow;
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+}
+
+#letterD {
+    color: green;
+}
+
+#letterO {
+    color: red;
+}
