@@ -19,26 +19,105 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
+            background-color: black;
             background-image: url("img/dicebg.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 0.9;
+            opacity: 0.8;
         }
 
         #options {
             text-align: center;
             width: 50%;
             position: absolute;
-            top: 12%;
+            top: 23%;
             left: 24%;
             opacity: 0.9;
         }
+
+        .btn {
+            font-size: 1.8rem;
+        }
+
+        .btn-warning {
+            margin-left: 16%;
+        }
+
+        #creategame {
+            display: none;
+            border: 1px solid black;
+            margin-left: 5%;
+            color: white;
+            margin-top: 2%;
+            width: 50%;
+            background: black;
+            padding: 12px;
+        }
+
+        #joingame {
+            display: none;
+            border: 1px solid black;
+            margin-left: 53%;
+            color: white;
+            margin-top: 2%;
+            width: 50%;
+            background: black;
+            padding: 12px;
+        }
     </style>
+    <script>
+        function create() {
+            document.getElementById("joingame").style.display = "none";
+            document.getElementById("creategame").style.display = "block";
+        }
+
+        function join() {
+            document.getElementById("creategame").style.display = "none";
+            document.getElementById("joingame").style.display = "block";
+        }
+    </script>
 </head>
 <body>
 <div id="options">
-    <button type="button" class="btn btn-danger">Create a new Game</button>
-    <button type="button" class="btn btn-warning">Join a Game</button>
+    <button type="button" class="btn btn-danger" onclick="create();">Create a new Game</button>
+    <button type="button" class="btn btn-warning" onclick="join();">Join a Game</button>
+    <div id="creategame">
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Game Owner's Name :</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Jane/John Doe">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Number of Players :</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Game's Name (Optional) : </label>
+                <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Hunger Games">
+            </div>
+        </form>
+    </div>
+    <div id="joingame">
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput2">Game's Name :</label>
+                <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Hunger Games">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Color :</label>
+                <select class="form-control" id="exampleFormControlSelect2">
+                    <option>Red</option>
+                    <option>Blue</option>
+                    <option>Green</option>
+                    <option>Yellow</option>
+                </select>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>
